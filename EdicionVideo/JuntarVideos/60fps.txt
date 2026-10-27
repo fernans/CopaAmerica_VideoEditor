@@ -1,0 +1,160 @@
+#include <windows.h>
+#include <vfw.h>
+#include <stdio.h>
+
+void sixty_fps(char *in, char *out);
+
+int main(int argc, char **argv)
+{
+	if(argc < 3){
+		fprintf(stderr, "ERROR: unsatisfactory argments\n");
+		exit(EXIT_FAILURE);
+	}
+	
+	AVIFileInit(); /* initialize VfW library */
+	sixty_fps(argv[argc-2], argv[argc-1]);
+	AVIFileExit(); /* release resources */
+
+	return EXIT_SUCCESS;
+}
+
+void sixty_fps(char *in_path, char *out_path)
+{
+	PAVIFILE out_file;
+	PAVISTREAM out_video;
+	PAVIFILE in_file;
+	PAVISTREAM in_video;
+
+	AVISTREAMINFO info;
+
+	LPVOID frame_format;
+	LONG   frame_format_size;
+	
+	LPVOID frame;
+	LONG   frame_size;
+
+	int i,n, cinema;
+
+	frame = NULL;
+
+	if(AVIFileOpen(&in_file, in_path, OF_READ|OF_SHARE_EXCLUSIVE, NULL)){
+		fprintf(stderr, "ERROR - %s open failed\n", in_path);
+		goto SIXTY_FPS_1ST_LEVEL_ERROR;
+	}
+
+	if(AVIFileGetStream(in_file, &in_video, streamtypeVIDEO, 0)){
+		fprintf(stderr, "ERROR - %s has no video stream", in_path);
+		goto SIXTY_FPS_2ND_LEVEL_ERROR;
+	}
+
+	if(AVIStreamInfo(in_video, &info, sizeof(AVISTREAMINFO))){
+		fprintf(stderr, "ERROR - failed to get %s stream info", in_path);
+		goto SIXTY_FPS_3RD_LEVEL_ERROR;
+	}
+	
+	switch( (info.dwRate+info.dwScale-1)/info.dwScale ){
+	case 24:
+		cinema = 1;
+		info.dwRate *= 5;
+		info.dwRate /= 2;
+		break;
+	case 30:
+		cinema = 0;
+		info.dwRate *= 2;
+		break;
+	default:
+		fprintf(stderr, "ERROR - %s has unexpected fps, rate=%d, scale=%d\n", in_path, info.dwRate, info.dwScale);
+		goto SIXTY_FPS_3RD_LEVEL_ERROR;
+	}
+
+	if(AVIStreamReadFormat(in_video, 0, NULL, &frame_format_size)){
+		fprintf(stderr, "ERROR - failed to get %s frame format size", in_path);
+		goto SIXTY_FPS_3RD_LEVEL_ERROR;
+	}
+
+	frame_format = malloc(frame_format_size);
+	if(frame_format == NULL){
+		fprintf(stderr, "ERROR - no enough memory space");
+		goto SIXTY_FPS_3RD_LEVEL_ERROR;
+	}
+
+	if(AVIStreamReadFormat(in_video, 0, frame_format, &frame_format_size)){
+		fprintf(stderr, "ERROR - failed to read %s video stream format", in_path);
+		goto SIXTY_FPS_4TH_LEVEL_ERROR;
+	}
+
+	if(AVIFileOpen(&out_file, out_path, OF_CREATE|OF_WRITE, NULL)){
+		fprintf(stderr, "ERROR - failed to create %s\n", out_path);
+		goto SIXTY_FPS_4TH_LEVEL_ERROR;
+	}
+	
+	if(AVIFileCreateStream(out_file, &out_video, &info)){
+		fprintf(stderr, "ERROR - failed to create %s video stream", out_path);
+		goto SIXTY_FPS_5TH_LEVEL_ERROR;
+	}
+	
+	if(AVIStreamSetFormat(out_video, 0, frame_format, frame_format_size)){
+		fprintf(stderr, "ERROR - failed to set %s video stream format", out_path);
+		goto SIXTY_FPS_6TH_LEVEL_ERROR;
+	}
+
+	i = 0;
+	n = 0;
+	while(AVIStreamRead(in_video, n, 1, NULL, 0, &frame_size, NULL) == 0){
+		frame = malloc(frame_size);
+		if(frame == NULL){
+			fprintf(stderr, "ERROR - no enough memory space");
+			goto SIXTY_FPS_6TH_LEVEL_ERROR;
+		}
+		if(AVIStreamRead(in_video, n, 1, frame, frame_size, NULL, NULL)){
+			fprintf(stderr, "ERROR - failed to read %s frame %d", in_file, n);
+			goto SIXTY_FPS_7TH_LEVEL_ERROR;
+		}
+		if(AVIStreamIsKeyFrame(in_video, n)){
+			if(AVIStreamWrite(out_video, i, 1, frame, frame_size, AVIIF_KEYFRAME, NULL, NULL)){
+				fprintf(stderr, "ERROR - failed to write %s frame %d", out_file, i);
+				goto SIXTY_FPS_7TH_LEVEL_ERROR;
+			}
+		}else{
+			if(AVIStreamWrite(out_video, i, 1, frame, frame_size, 0, NULL, NULL)){
+				fprintf(stderr, "ERROR - failed to write %s frame %d", out_file, i);
+				goto SIXTY_FPS_7TH_LEVEL_ERROR;
+			}
+		}
+		
+		free(frame);
+		frame = NULL;
+		
+		i += 1;
+		if(cinema && (n&1)){
+			if(AVIStreamWrite(out_video, i, 1, NULL, 0, 0, NULL, NULL)){
+				fprintf(stderr, "ERROR - failed to write %s frame %d", out_file, i);
+				goto SIXTY_FPS_6TH_LEVEL_ERROR;
+			}
+			i += 1;
+		}
+		if(AVIStreamWrite(out_video, i, 1, NULL, 0, 0, NULL, NULL)){
+			fprintf(stderr, "ERROR - failed to write %s frame %d", out_file, i);
+			goto SIXTY_FPS_6TH_LEVEL_ERROR;
+		}
+		i += 1;
+		n += 1;
+	}
+
+SIXTY_FPS_7TH_LEVEL_ERROR:
+	if(frame){
+		free(frame);
+	}
+SIXTY_FPS_6TH_LEVEL_ERROR:
+	AVIStreamRelease(out_video);
+SIXTY_FPS_5TH_LEVEL_ERROR:
+	AVIFileRelease(out_file);
+SIXTY_FPS_4TH_LEVEL_ERROR:
+	free(frame_format);
+SIXTY_FPS_3RD_LEVEL_ERROR:
+	AVIStreamRelease(in_video);
+SIXTY_FPS_2ND_LEVEL_ERROR:
+	AVIFileRelease(in_file);
+SIXTY_FPS_1ST_LEVEL_ERROR:
+	return;
+}

@@ -1,0 +1,45 @@
+<xml>
+	<objeto ruta="video/flv/MALMO_1.flv" edicion="video/avi/MALMO_1.avi" texto="MALMO_1" valor="10" />
+	<objeto ruta="video/flv/MALMO_2.flv" edicion="video/avi/MALMO_2.avi" texto="MALMO_2" valor="10" />
+	<objeto ruta="video/flv/MALMO_3.flv" edicion="video/avi/MALMO_3.avi" texto="MALMO_3" valor="10" />
+	<objeto ruta="video/flv/MALMO_4.flv" edicion="video/avi/MALMO_4.avi" texto="MALMO_4" valor="10" />
+	<objeto ruta="video/flv/MALMO_5.flv" edicion="video/avi/MALMO_5.avi" texto="MALMO_5" valor="10" />
+	<objeto ruta="video/flv/MALMO_6.flv" edicion="video/avi/MALMO_6.avi" texto="MALMO_6" valor="10" />
+	<objeto ruta="video/flv/MALMO_7.flv" edicion="video/avi/MALMO_7.avi" texto="MALMO_7" valor="10" />
+	<objeto ruta="video/flv/MALMO_8.flv" edicion="video/avi/MALMO_8.avi" texto="MALMO_8" valor="10" />
+	<objeto ruta="video/flv/MALMO_9.flv" edicion="video/avi/MALMO_9.avi" texto="MALMO_9" valor="10" />
+
+	<objeto ruta="video/flv/HELICAM_1.flv" edicion="video/avi/HELICAM_1.avi" texto="HELICAM_1" valor="10" />
+	<objeto ruta="video/flv/HELICAM_2.flv" edicion="video/avi/HELICAM_2.avi" texto="HELICAM_2" valor="10" />
+	<objeto ruta="video/flv/HELICAM_3.flv" edicion="video/avi/HELICAM_3.avi" texto="HELICAM_3" valor="10" />
+	<objeto ruta="video/flv/HELICAM_4.flv" edicion="video/avi/HELICAM_4.avi" texto="HELICAM_4" valor="10" />
+	<objeto ruta="video/flv/HELICAM_5.flv" edicion="video/avi/HELICAM_5.avi" texto="HELICAM_5" valor="10" />
+	<objeto ruta="video/flv/HELICAM_6.flv" edicion="video/avi/HELICAM_6.avi" texto="HELICAM_6" valor="10" />
+	<objeto ruta="video/flv/HELICAM_7.flv" edicion="video/avi/HELICAM_7.avi" texto="HELICAM_7" valor="10" />
+	<objeto ruta="video/flv/HELICAM_8.flv" edicion="video/avi/HELICAM_8.avi" texto="HELICAM_8" valor="10" />
+	<objeto ruta="video/flv/HELICAM_9.flv" edicion="video/avi/HELICAM_9.avi" texto="HELICAM_9" valor="10" />
+
+	<objeto ruta="video/flv/ON_BOARD_1.flv" edicion="video/avi/ON_BOARD_1.avi" texto="ON_BOARD_1" valor="10" />
+	<objeto ruta="video/flv/ON_BOARD_2.flv" edicion="video/avi/ON_BOARD_2.avi" texto="ON_BOARD_2" valor="10" />
+	<objeto ruta="video/flv/ON_BOARD_3.flv" edicion="video/avi/ON_BOARD_3.avi" texto="ON_BOARD_3" valor="10" />
+	<objeto ruta="video/flv/ON_BOARD_4.flv" edicion="video/avi/ON_BOARD_4.avi" texto="ON_BOARD_4" valor="10" />
+	<objeto ruta="video/flv/ON_BOARD_5.flv" edicion="video/avi/ON_BOARD_5.avi" texto="ON_BOARD_5" valor="10" />
+	<objeto ruta="video/flv/ON_BOARD_6.flv" edicion="video/avi/ON_BOARD_6.avi" texto="ON_BOARD_6" valor="10" />
+	<objeto ruta="video/flv/ON_BOARD_7.flv" edicion="video/avi/ON_BOARD_7.avi" texto="ON_BOARD_7" valor="10" />
+	<objeto ruta="video/flv/ON_BOARD_8.flv" edicion="video/avi/ON_BOARD_8.avi" texto="ON_BOARD_8" valor="10" />
+	<objeto ruta="video/flv/ON_BOARD_9.flv" edicion="video/avi/ON_BOARD_9.avi" texto="ON_BOARD_9" valor="10" />
+
+	<objeto ruta="audio/mp3/audio1.mp3" edicion="audio/wav/audio1.wav" texto="audio_1" valor="10" />
+	<objeto ruta="audio/mp3/audio2.mp3" edicion="audio/wav/audio2.wav" texto="audio_2" valor="10" />
+	<objeto ruta="audio/mp3/audio3.mp3" edicion="audio/wav/audio3.wav" texto="audio_3" valor="10" />
+	<objeto ruta="audio/mp3/audio4.mp3" edicion="audio/wav/audio4.wav" texto="audio_4" valor="10" />
+
+	<fondo ruta="fondos/fondo_adulto.swf" />
+	<texto idioma="EN" ruta="textos/textos_ingles_adulto.swf" />
+	<texto idioma="SP" ruta="textos/textos_castellano_adulto.swf" />
+
+	<tiempoEspera valor="60" />
+	<tiempoLimite valor="60" />
+	<tiempoReset valor="60" />
+	<no-mail smtp="smtp.servidor.com" smtpport="25" user="usuario@servidor.com" pass="password" to="destino@servidor.com" from="origen@servidor.com" subject="32 America's Cup" />
+</xml>

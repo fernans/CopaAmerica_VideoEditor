@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>FFMPEGScout</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: x-small;
+}
+.bline {
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #666666;
+}
+-->
+</style>
+</head>
+
+<body>
+<p><strong>COM Class Name:</strong><br />
+FFMpegScout.Application</p>
+<p><strong>Properties:</strong></p>
+<table width="739" border="0" cellpadding="3">
+  <tr>
+    <td width="239" bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>Width (USHORT) </strong></td>
+    <td width="468" bordercolor="#003399" class="bline">Frame width </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>Height (USHORT) </strong></td>
+    <td bordercolor="#003399" class="bline">Frame height </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>InputFileName (BSTR) </strong></td>
+    <td bordercolor="#003399" class="bline">Name of the input file (required) </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>OutputFileName (BSTR) </strong></td>
+    <td bordercolor="#003399" class="bline">Name of the output file (required) </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>AudioBitrate (USHORT) </strong></td>
+    <td bordercolor="#003399" class="bline">Target audio bitrate </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>VideoBitrate (USHORT) </strong></td>
+    <td bordercolor="#003399" class="bline">Target video bitrate </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>VideoType (BYTE) </strong></td>
+    <td bordercolor="#003399" class="bline"><p>Target video type:<br />
+      0=none, 1=vcd, 2=svcd, 3=dvd, 4=dv, 5=pal-vcd, 6=ntsc-svcd</p>    </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>RemoveAudioStream (BOOL) </strong></td>
+    <td bordercolor="#003399" class="bline">Audio stream will be removed from output if set to TRUE </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>RemoveVideoStream (BOOL) </strong></td>
+    <td bordercolor="#003399" class="bline">Video stream will be removed from output if set to TRUE </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>ForcedCodecName (BSTR) </strong></td>
+    <td bordercolor="#003399" class="bline">Forced codec name for video (such as &quot;mpeg4&quot;, &quot;mjpeg&quot; etc) </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>ForcedAudioCodecName (BSTR) </strong></td>
+    <td bordercolor="#003399" class="bline">Forced audio codec name (such as &quot;mp2&quot; etc) </td>
+  </tr>
+  <tr>
+    <td bordercolor="#003399" bgcolor="#EBEBEB" class="bline"><strong>PathToFFMpeg (BSTR) </strong></td>
+    <td bordercolor="#003399" class="bline">Fully qualified path name for the &quot;ffmpeg.exe&quot; (by default it will look for ffmpeg.exe at the current directory)</td>
+  </tr>
+</table>
+<p><strong>Methods:</strong></p>
+<table width="739" border="0" cellpadding="3">
+  <tr>
+    <td width="239" bordercolor="#000066" bgcolor="#EBEBEB" class="bline">Execute</td>
+    <td width="468" bordercolor="#000066" class="bline">Starts conversion </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

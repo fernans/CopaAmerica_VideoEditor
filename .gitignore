@@ -1,0 +1,24 @@
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+*.bak
+*.tmp
+*.log
+
+# Fuera de scope: carpetas del proyecto no seleccionadas para publicación
+documentacion_emails/
+CDAudio/
+DVDVideo/
+Copia de EdicionVideo/
+very old EdicionVideo/
+soft/
+
+# Entregable empaquetado (se publica como GitHub Release, no en el árbol)
+EdicionVideo/EdicionVideo_entregado(6-mar-07).rar
+
+# Instaladores redistribuidos de terceros (ver README: soft necesarios para ejecución)
+_ejecucion_/soft/
+
+# Salidas generadas de test (contienen emails de prueba en el nombre)
+EdicionVideo/EdicionVideo/output/

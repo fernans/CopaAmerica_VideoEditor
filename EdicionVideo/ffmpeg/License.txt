@@ -1,0 +1,29 @@
+FFMPEG Scout 
+=====================
+License Agreement
+
+"Author" herein refers to Bytescout Software
+
+"Software" refers to all files bearing this notice, as well as any other files and source code included with FFMPEG Scout libraru and all content in them, regardless of whether any modifications have been made.
+
+Except where otherwise noted, all of the documentation and Software included in the FFMPEG Scout library package is copyrighted by Eugene Mironichev (the Author).
+
+Copyright (C) 2005-2006 Bytescout Software. All rights reserved.
+
+This notice is only applicable to FFMPEG Scout library package.
+
+Use and distribution of the software is permitted provided that all of the following terms are accepted:
+
+1. The Software is provided "as-is," without any express or implied warranty. In no event shall the Author be held liable for any damages arising from the use of the Software.
+
+2. All redistributions of the Software's files must be in their original, unmodified form. Distributions of modified versions of the files is not  permitted without express written permission of the Author.
+
+4. The origin of this Software must not be misrepresented; you must not claim your authorship.
+
+5. You are permitted to include FFMPEGScout.dll into any kind of applications.
+ 
+6. You are permitted to re-distribute FFMPEGScout.dll along with any kind of applications.
+
+7. Full backward compatibility in future versions of the Software is not guaranteed. In no event shall the Author be held liable for any inconvenience or damages arising from lack of backward compatibility.
+
+If you do not agree to all of the above terms, you are not permitted to use the Software in any way, and all copies of it must be deleted from your system(s).

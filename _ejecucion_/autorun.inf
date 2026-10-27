@@ -1,0 +1,7 @@
+[Autorun]
+open=launch.bat
+icon=icons\clack.ico
+shellexecute=launch.bat
+shell\EdicionVideo\command=launch.bat
+shell=EdicionVideo
+ACTION = Lanzar Edicion de Video
